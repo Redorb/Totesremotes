@@ -3,7 +3,7 @@ class CreateJobPostings < ActiveRecord::Migration
     create_table :job_postings do |t|
       t.string :job
       t.string :company
-      t.array :tags
+      t.string :tags
       t.string :description
       t.string :location
       t.integer :salary
