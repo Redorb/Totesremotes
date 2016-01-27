@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'json'
 
-class RemoteOkParsingHelper
+module RemoteOkParsingHelper
   def grab_front_page_jobs
     front_page_html = Nokogiri::HTML(open("https://remoteok.io/"))
     job_postings_as_json(front_page_html)
