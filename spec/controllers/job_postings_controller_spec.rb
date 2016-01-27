@@ -106,12 +106,12 @@ RSpec.describe JobPostingsController, type: :controller do
         {job: "test2", company: "test2", description: "test2", tags: ["test2"], location: "test2", salary: 200000}
       }
 
-      # it "updates the requested job_posting" do
-      #   job_posting = JobPosting.create! valid_attributes
-      #   put :update, {:id => job_posting.to_param, :job_posting => new_attributes}, valid_session
-      #   job_posting.reload
-      #   expect(assigns(:job_posting)).to eq(new_attributes)
-      # end
+      it "updates the requested job_posting" do
+        job_posting = JobPosting.create! valid_attributes
+        put :update, {:id => job_posting.to_param, :job_posting => new_attributes}, valid_session
+        job_posting.reload
+        expect(assigns(:job_posting)).to include(new_attributes)
+      end
 
       it "assigns the requested job_posting as @job_posting" do
         job_posting = JobPosting.create! valid_attributes
