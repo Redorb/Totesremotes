@@ -1,10 +1,12 @@
 class JobPostingsController < ApplicationController
+  include RemoteOkParsing
   before_action :set_job_posting, only: [:show, :edit, :update, :destroy]
 
   # GET /job_postings
   # GET /job_postings.json
   def index
     @job_postings = JobPosting.all
+    @scrapped_postings = grab_front_page_jobs
   end
 
   # GET /job_postings/1
