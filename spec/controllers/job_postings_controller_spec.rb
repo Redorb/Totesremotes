@@ -110,7 +110,11 @@ RSpec.describe JobPostingsController, type: :controller do
         job_posting = JobPosting.create! valid_attributes
         put :update, {:id => job_posting.to_param, :job_posting => new_attributes}, valid_session
         job_posting.reload
-        expect(assigns(:job_posting)).to include(new_attributes)
+        expect(assigns(:job_posting)[:job]).to eq(new_attributes[:job])
+        expect(assigns(:job_posting)[:company]).to eq(new_attributes[:company])
+        expect(assigns(:job_posting)[:description]).to eq(new_attributes[:description])
+        expect(assigns(:job_posting)[:location]).to eq(new_attributes[:location])
+        expect(assigns(:job_posting)[:salary]).to eq(new_attributes[:salary])
       end
 
       it "assigns the requested job_posting as @job_posting" do
