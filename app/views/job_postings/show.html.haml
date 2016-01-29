@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Job:
+  = @job_posting.job
+%p
+  %strong Company:
+  = @job_posting.company
+%p
+  %strong Tags:
+  = @job_posting.tags
+%p
+  %strong Description:
+  = @job_posting.description
+%p
+  %strong Location:
+  = @job_posting.location
+%p
+  %strong Salary:
+  = @job_posting.salary
+= link_to 'Edit', edit_job_posting_path(@job_posting)
+|
+= link_to 'Back', job_postings_path
