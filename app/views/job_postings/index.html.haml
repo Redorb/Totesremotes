@@ -1,5 +1,22 @@
 %p#notice= notice
 %h3 Listing Job Postings
+- @scrapped_postings.each_slice(3) do |slice|
+  .row
+    - slice.each do |job_posting|
+      .col.s4.m4
+        .card.small
+          .card-image.waves-effect.waves-block.waves-light
+            = image_tag "code.jpg", {class: 'activator'}
+          .card-content
+            %span.card-title.activator.grey-text.text-darken-4
+              = job_posting[:job]
+              %i.material-icons.right more_vert
+            %p= job_posting[:company]
+            %p= job_posting[:tags]
+          .card-reveal
+            %span.card-title.activator.grey-text.text-darken-4
+              = "#{job_posting[:job]} #{job_posting[:company]}"
+            %p= job_posting[:description]
 %table.highlight
   %thead
     %tr
@@ -22,13 +39,6 @@
         %td= link_to 'Show', job_posting
         %td= link_to 'Edit', edit_job_posting_path(job_posting)
         %td= link_to 'Destroy', job_posting, method: :delete, data: { confirm: 'Are you sure?' }
-    - @scrapped_postings.each do |job_posting|
-      %tr
-        %td= job_posting[:job]
-        %td= job_posting[:company]
-        %td= job_posting[:tags]
-        %td= h job_posting[:description]
-        %td Banana
-        %td 100
+
 %br/
 = link_to 'New Job posting', new_job_posting_path
