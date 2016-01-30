@@ -1,22 +1,24 @@
 %p#notice= notice
-%h3 Listing Job Postings
-- @scrapped_postings.each_slice(3) do |slice|
-  .row
-    - slice.each do |job_posting|
-      .col.s4.m4
-        .card.small
-          .card-image.waves-effect.waves-block.waves-light
-            = image_tag "code.jpg", {class: 'activator'}
-          .card-content
-            %span.card-title.activator.grey-text.text-darken-4
-              = job_posting[:job]
-              %i.material-icons.right more_vert
-            %p= job_posting[:company]
-            %p= job_posting[:tags]
-          .card-reveal
-            %span.card-title.activator.grey-text.text-darken-4
-              = "#{job_posting[:job]} #{job_posting[:company]}"
-            %p= job_posting[:description]
+%h3.center Job Postings
+.container
+  - @scrapped_postings.each_slice(3) do |slice|
+    .row
+      - slice.each do |job_posting|
+        .col.s5.m4
+          .card.small.small_card_custom
+            .card-image.waves-effect.waves-block.waves-light
+              = image_tag "code.jpg", {class: 'activator'}
+            .card-content
+              %span.card-title.grey-text.text-darken-4
+                .ellipsis= job_posting[:job]
+                %i.material-icons.activator.right more_vert
+              %p= job_posting[:company]
+              - job_posting[:tags].each do |tag|
+                .chip= tag
+            .card-reveal
+              %span.card-title.activator.grey-text.text-darken-4
+                = "#{job_posting[:job]} #{job_posting[:company]}"
+              %p= job_posting[:description]
 %table.highlight
   %thead
     %tr
