@@ -4,13 +4,12 @@
 .ellipsis {
   display: block;
   float: left;
-  width: 270px;
+  width: 80%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.card.small.small_card_custom {
-  height: 330px;
+.card.card_custom {
   span:after {
     content:"";
     display:table;
@@ -20,7 +19,12 @@
     cursor: pointer;
     margin-left: 0px;
   }
-  .chip {
-    margin-top: 5px;
+  .tags {
+    max-height: 2.5rem;
+    overflow: hidden;
+    .chip {
+      margin-top: 5px;
+    }
   }
+
 }
