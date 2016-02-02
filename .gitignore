@@ -1,3 +1,4 @@
+/config/initializers/devise.rb
 .elasticbeanstalk/
 .idea/
 *.gem
