@@ -14,4 +14,9 @@
         %ul.right.hide-on-med-and-down
           %li
             %a{href: new_job_posting_path} Create New Job
+    - if notice
+      %p{class: 'alert alert-success'}= notice
+    - if alert
+      %p{class: 'alert alert-danger'}= alert
+
     = yield
