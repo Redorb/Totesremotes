@@ -7,29 +7,26 @@
       %ul
         - @job_posting.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :job
-    %br/
-    = f.text_field :job
-  .field
-    = f.label :company
-    %br/
-    = f.text_field :company
-  .field
-    = f.label :tags
-    %br/
-    = f.text_field :tags
-  .field
-    = f.label :description
-    %br/
-    = f.text_field :description
-  .field
-    = f.label :location
-    %br/
-    = f.text_field :location
-  .field
-    = f.label :salary
-    %br/
-    = f.number_field :salary
-  .actions
-    = f.submit
+  .row
+    .col.s12
+      .row
+        .input-field.col.s6
+          = f.text_field :job
+          = f.label :job
+        .input-field.col.s6
+          = f.text_field :company
+          = f.label :company
+      .row
+        .input-field.col.s6
+          = f.text_field :tags
+          = f.label :tags
+        .input-field.col.s6
+          = f.number_field :salary
+          = f.label :salary
+      .row
+        .input-field.col.s12
+          = f.text_area :description, {class: 'materialize-textarea'}
+          = f.label :description
+      .row
+        .actions
+          = f.submit class: 'btn deep-purple'

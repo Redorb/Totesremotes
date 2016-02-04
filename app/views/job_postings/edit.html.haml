@@ -1,5 +1,6 @@
-%h1 Editing Job Posting
-= render 'form'
-= link_to 'Show', @job_posting
-|
-= link_to 'Back', job_postings_path
+.container
+  %h1 Editing Job Posting
+  = render 'form'
+  = link_to 'Show', @job_posting, {class: 'btn deep-purple'}
+  |
+  = link_to 'Back', job_postings_path, {class: 'btn deep-purple'}
